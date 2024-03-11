@@ -19,13 +19,12 @@ export const MinimalPostPreview = ({ title, date, slug, commentCount, descriptio
 	const postURL = `/${slug}`;
 
 	return (
-
 		<article className="relative isolate flex flex-col gap-8 lg:flex-row">
                 <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                   <Image
                     src={imageUrl}
-										width={100}
-										height={100}
+										width={500}
+										height={500}
                     alt=""
                     className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                   />

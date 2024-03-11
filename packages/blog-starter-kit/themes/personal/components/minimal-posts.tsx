@@ -7,7 +7,6 @@ type Props = {
 };
 
 export const MinimalPosts = ({ posts }: Props) => {
-	console.log('posts', posts);	
 	return (
 		<section className="flex w-full flex-col items-stretch gap-12 ">
 			{posts.map((post) => (
