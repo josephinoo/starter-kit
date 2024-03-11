@@ -7,6 +7,7 @@ type Props = {
 };
 
 export const MinimalPosts = ({ posts }: Props) => {
+	console.log('posts', posts);	
 	return (
 		<section className="flex w-full flex-col items-stretch gap-12 ">
 			{posts.map((post) => (
@@ -14,7 +15,7 @@ export const MinimalPosts = ({ posts }: Props) => {
 					key={post.id}
 					title={post.title}
 					date={post.publishedAt}
-					author={post.author }
+					author={post.author}
 					imageUrl={post.coverImage?.url || '/placeholder.jpg'}
 					description={post.brief}
 					slug={post.slug}

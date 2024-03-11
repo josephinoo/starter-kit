@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { User } from '../generated/graphql';
 import { DateFormatter } from './date-formatter';
 
-type Author = User;
+type Author = Pick<User, 'name' | 'profilePicture'>;
 
 type Props = {
 	title: string;
@@ -21,8 +22,10 @@ export const MinimalPostPreview = ({ title, date, slug, commentCount, descriptio
 
 		<article className="relative isolate flex flex-col gap-8 lg:flex-row">
                 <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                  <img
+                  <Image
                     src={imageUrl}
+										width={100}
+										height={100}
                     alt=""
                     className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                   />
@@ -45,7 +48,7 @@ export const MinimalPostPreview = ({ title, date, slug, commentCount, descriptio
                   </div>
                   <div className="mt-6 flex border-t border-gray-900/5 pt-6">
                     <div className="relative flex items-center gap-x-4">
-                      <img src={author.profilePicture} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
+                      <Image src={author.profilePicture || ""} alt="" className="h-10 w-10 rounded-full bg-gray-50" width={100} height={100}/>
                       <div className="text-sm leading-6">
                         <p className="font-semibold text-gray-900">
                           <Link href="">
